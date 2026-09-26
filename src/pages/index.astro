@@ -22,6 +22,9 @@ let contact = [
 <Layout>
   <!-- hero section -->
   <section class="paralax" id="hero">
+    <!-- background layer (di gerakkan oleh rellax) -->
+    <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
+         style="background-image: url('hero-background.jpg')"></div>
     <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
       <h1><Typewriter text={["HI THERE👋", "DANY SAPUTRA", "JUNIOR SOFTWARE DEVELOPER"]} speed="50"/></h1>
       <p id="text-hero">Hi. nama saya dany saputra, saya kelas 10 RPL di UPT SMK Negeri 1 Pasuruan Jawa timur. saya adalah seorang pelajar yang memiliki cita cita menjadi software architecture</p>
@@ -30,6 +33,9 @@ let contact = [
 
   <!-- material section -->
   <section class="paralax" id="material">
+    <!-- background layer (di gerakkan oleh rellax) -->
+    <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
+         style="background-image: url('material.png')"></div>
     <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
       <h1>Skill yang Sedang Dipelajari</h1>
       <ul>
@@ -42,6 +48,9 @@ let contact = [
 
   <!-- skills section -->
   <section class="paralax" id="skills">
+    <!-- background layer (di gerakkan oleh rellax) -->
+    <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
+         style="background-image: url('skills-bg.png')"></div>
     <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
       <h1>Skill Saya</h1>
       <ul>
@@ -57,6 +66,9 @@ let contact = [
 
   <!-- contact section -->
   <section class="paralax" id="contact">
+    <!-- background layer (di gerakkan oleh rellax) -->
+    <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
+         style="background-image: url('contact-bg.jpg')"></div>
     <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
       <h1>Contact</h1>
       <!-- merender contactCard dan memberikan data contact dalam props -->
@@ -72,36 +84,47 @@ let contact = [
     min-height: 100vh;
     box-sizing: border-box;
 
-    /* paralax section */
-    background-attachment: fixed;
+    /* paralax */
+    position: relative;
+    overflow: hidden; /* supaya background yang bergeser tidak bocor keluar section */
+  }
+
+  /* layer background, di gerakkan oleh rellax */
+  .bg {
+    position: absolute;
+    top: -20%;        /* offset negatif supaya ada ruang geser ke atas */
+    left: 0;
+    width: 100%;
+    height: 140%;     /* lebih tinggi dari section supaya tidak muncul celah */
     background-position: right;
     background-size: cover;
-    position: relative;
+    background-repeat: no-repeat;
+    z-index: 0;
   }
-  #hero     { background-image: url("hero-background.jpg"); }
-  #material { background-image: url("material.png"); }
-  #skills   { background-image: url("skills-bg.png"); }
+
   #contact {
-    background-image: url("contact-bg.jpg");
     background-position: center;
     display: grid;
     place-items: center;
   }
 
+  /* konten berada di atas layer background */
   .container {
+    position: relative;
+    z-index: 1;
     margin: 0;
     padding: 5em 0 0.5em 1.5em;
   }
 
   #text-hero { max-width: 500px; }
 
-  [data-parallax] {
+  .rellax {
     will-change: transform;
     transform: translate3d(0, 0, 0);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-parallax] { transform: none !important; }
+    .rellax { transform: none !important; }
   }
 </style>
 
