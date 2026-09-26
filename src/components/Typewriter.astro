@@ -1,0 +1,23 @@
+---
+const { text } = Astro.props;
+const formattedText = Array.isArray(text) ? text : [text];
+---
+
+<span id="typed" data-strings={JSON.stringify(formattedText)}></span>
+
+<script>
+  import Typed from 'typed.js';
+
+  const element = document.querySelector<HTMLSpanElement>('#typed');
+  
+  if (element) {
+    const strings = JSON.parse(element.dataset.strings || '[]');
+
+    new Typed('#typed', {
+      strings: strings,
+      typeSpeed: 50,
+      backSpeed: 60,
+      loop: true
+    });
+  }
+</script>

@@ -1,0 +1,47 @@
+---
+// deklarasi astro props 
+let { name } = Astro.props
+---
+
+<nav>
+  <!-- judul menggunakan variable dari props (Layout.astro) -->
+  <h1>{ name }</h1>
+
+  <!-- navbar menu -->
+  <div>
+    <a href="#hero">Hero</a>
+    <a href="#material">materi</a>
+    <a href="#skills">skills</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: blue;
+    z-index: 1000; /* buat z index nya di paling depan agar tidak tertindih*/
+    position: sticky; /* agar tetap nempel di atas */
+    top: 0; /* agar tidak ada jarak ke tepi layar */
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin: 0px;
+  }
+  a {
+    color: #880808;
+    margin-left: 0.5em;
+    padding: .3em 0.4em;
+    text-decoration: none; /* menghilangkan garis bawah di teks a (link) */
+  }
+  
+  /* atribut yang hidup saat kursor ada di salah satu nav menu */
+  a:hover {
+    background-color: blanchedalmond;
+    border-radius: 4px;
+  }
+
+</style>

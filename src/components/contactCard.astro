@@ -1,0 +1,45 @@
+---
+// mendeklarasikan isi dari data yang akan didapat dari props
+interface ContactData {
+  title: string;
+  iconUrl: string;
+  contactUrl: string;
+}
+
+// mendeklarasikan interface untuk props dengan isi dataContact yang akan dianggap sebagai array
+interface Props {
+  dataContact: ContactData[];
+}
+
+const { dataContact } = Astro.props
+---
+
+
+<!-- div untuk membungkus sekumpulan contact card -->
+<div class="container-card">
+  <!-- iterasi dataContact untuk menampilkan nya ke browser sebagai card -->
+  {dataContact.map((data) => (
+    <div>
+      <a href={data.contactUrl}>
+        <img src={data.iconUrl} alt={data.title} width="80"/>
+        <p>{data.title}</p>
+      </a>
+    </div>
+  ))}
+</div>
+
+<style>
+  
+  .container-card {
+    color: whitesmoke;
+    display: flex;
+    gap: 1em;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+  }
+
+</style>

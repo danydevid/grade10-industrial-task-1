@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Typewriter from '../components/Typewriter.astro';
+import ContactCard  from '../components/contactCard.astro';
+
+// data contact dalam bentuk json (agar mudah di loop)
+let contact = [
+  {
+    title: "Instagram",
+    iconUrl: "contactIco/instagram.svg",
+    contactUrl: "https://instagram.com/@mrtechnix"
+  },
+  {
+    title: "Github",
+    iconUrl: "contactIco/github.png",
+    contactUrl: "https://github.com/danydevid"
+  }
+]
+
+---
+
+<Layout>
+  <!-- hero section -->
+  <section class="paralax" id="hero">
+    <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
+      <h1><Typewriter text={["HI THERE👋", "DANY SAPUTRA", "JUNIOR SOFTWARE DEVELOPER"]} speed="50"/></h1>
+      <p id="text-hero">Hi. nama saya dany saputra, saya kelas 10 RPL di UPT SMK Negeri 1 Pasuruan Jawa timur. saya adalah seorang pelajar yang memiliki cita cita menjadi software architecture</p>
+    </div>
+  </section>
+
+  <!-- material section -->
+  <section class="paralax" id="material">
+    <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
+      <h1>Skill yang Sedang Dipelajari</h1>
+      <ul>
+        <li>HTML - Struktur halaman web</li>
+        <li>CSS - Tampilan & desain web</li>
+        <li>JavaScript - Interaksi web (segera!)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- skills section -->
+  <section class="paralax" id="skills">
+    <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
+      <h1>Skill Saya</h1>
+      <ul>
+        <li>Golang - dasar</li>
+        <li>C - dasar</li>
+        <li>JavaScript - Menengah (async await, callback, promises)</li>
+        <li>Git - Dasar (commit, create branch, pr)</li>
+        <li>Github - Dasar (merge, github ci, hooks)</li>
+        <li>frontend web - beginer</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- contact section -->
+  <section class="paralax" id="contact">
+    <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
+      <h1>Contact</h1>
+      <!-- merender contactCard dan memberikan data contact dalam props -->
+      <ContactCard dataContact={ contact }/>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* paralax style */
+  .paralax {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    /* paralax section */
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+    position: relative;
+  }
+  #hero     { background-image: url("hero-background.jpg"); }
+  #material { background-image: url("material.png"); }
+  #skills   { background-image: url("skills-bg.png"); }
+  #contact {
+    background-image: url("contact-bg.jpg");
+    background-position: center;
+    display: grid;
+    place-items: center;
+  }
+
+  .container {
+    margin: 0;
+    padding: 5em 0 0.5em 1.5em;
+  }
+
+  #text-hero { max-width: 500px; }
+
+  [data-parallax] {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-parallax] { transform: none !important; }
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  import Rellax from 'rellax';
+
+  // Inisialisasi Rellax
+  const rellax = new Rellax('.rellax', {
+    speed: -2,
+    center: false,
+    wrapper: null,
+    round: true,
+    vertical: true,
+    horizontal: false
+  });
+</script>
