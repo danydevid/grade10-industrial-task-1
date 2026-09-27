@@ -1,16 +1,16 @@
 ---
-// deklarasi astro props 
+// declare astro props 
 let { name } = Astro.props
 ---
 
 <nav>
-  <!-- judul menggunakan variable dari props (Layout.astro) -->
+  <!-- title using variable from props (Layout.astro) -->
   <h1>{ name }</h1>
 
   <!-- navbar menu -->
   <div>
     <a href="#hero">Hero</a>
-    <a href="#material">materi</a>
+    <a href="#material">material</a>
     <a href="#skills">skills</a>
     <a href="#contact">contact</a>
   </div>
@@ -22,9 +22,9 @@ let { name } = Astro.props
     justify-content: space-between;
     padding: 1em;
     background-color: blue;
-    z-index: 1000; /* buat z index nya di paling depan agar tidak tertindih*/
-    position: sticky; /* agar tetap nempel di atas */
-    top: 0; /* agar tidak ada jarak ke tepi layar */
+    z-index: 1000; /* set z-index to the very front so it doesn't get overlapped */
+    position: sticky; /* so it stays attached to the top */
+    top: 0; /* so there's no gap to the screen edge */
   }
   
   h1 {
@@ -32,16 +32,21 @@ let { name } = Astro.props
     margin: 0px;
   }
   a {
+    display: inline-block;
     color: #880808;
+    background-color: blanchedalmond;
+    border-radius: 4px;
     margin-left: 0.5em;
     padding: .3em 0.4em;
-    text-decoration: none; /* menghilangkan garis bawah di teks a (link) */
+    text-decoration: none; /* remove underline from anchor text (link) */
   }
   
-  /* atribut yang hidup saat kursor ada di salah satu nav menu */
+  /* attributes that activate when the cursor is on one of the nav menu items */
   a:hover {
     background-color: blanchedalmond;
     border-radius: 4px;
+    transform: translate(-4px, -4px) scale(1.1);
+    box-shadow: 3px 4px;
   }
 
 </style>

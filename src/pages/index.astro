@@ -3,16 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Typewriter from '../components/Typewriter.astro';
 import ContactCard  from '../components/contactCard.astro';
 
-// data contact dalam bentuk json (agar mudah di loop)
+// contact data in JSON format (for easy looping)
 let contact = [
   {
     title: "Instagram",
-    iconUrl: "contactIco/instagram.svg",
+    iconUrl: "/grade10-industrial-task-1/contactIco/instagram.svg",
     contactUrl: "https://instagram.com/@mrtechnix"
   },
   {
     title: "Github",
-    iconUrl: "contactIco/github.png",
+    iconUrl: "/grade10-industrial-task-1/contactIco/github.png",
     contactUrl: "https://github.com/danydevid"
   }
 ]
@@ -22,56 +22,56 @@ let contact = [
 <Layout>
   <!-- hero section -->
   <section class="paralax" id="hero">
-    <!-- background layer (di gerakkan oleh rellax) -->
+    <!-- background layer (animated by Rellax) -->
     <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
-         style="background-image: url('hero-background.jpg')"></div>
+         style="background-image: url('/grade10-industrial-task-1/hero-background.jpg')"></div>
     <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
-      <h1><Typewriter text={["HI THERE👋", "DANY SAPUTRA", "JUNIOR SOFTWARE DEVELOPER"]} speed="50"/></h1>
-      <p id="text-hero">Hi. nama saya dany saputra, saya kelas 10 RPL di UPT SMK Negeri 1 Pasuruan Jawa timur. saya adalah seorang pelajar yang memiliki cita cita menjadi software architecture</p>
+      <h1><Typewriter text={["HI THERE👋", "DANY SAPUTRA", "JUNIOR SOFTWARE DEVELOPER", "X RPL 1", "SMKN PASURUAN"]} speed="50"/></h1>
+      <p id="text-hero">Hi. My name is Dany Saputra, I am in grade 10 Software Engineering at UPT State Vocational High School 1 Pasuruan, East Java. I am a student who aspires to become a software architect.</p>
     </div>
   </section>
 
   <!-- material section -->
   <section class="paralax" id="material">
-    <!-- background layer (di gerakkan oleh rellax) -->
+    <!-- background layer (moved by Rellax) -->
     <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
-         style="background-image: url('material.png')"></div>
+         style="background-image: url('/grade10-industrial-task-1/material.png')"></div>
     <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
-      <h1>Skill yang Sedang Dipelajari</h1>
+      <h1>Skills I'm Currently Learning</h1>
       <ul>
-        <li>HTML - Struktur halaman web</li>
-        <li>CSS - Tampilan & desain web</li>
-        <li>JavaScript - Interaksi web (segera!)</li>
+        <li>HTML - Web page structure</li>
+        <li>CSS - Web appearance & design</li>
+        <li>JavaScript - Web interaction (coming soon!)</li>
       </ul>
     </div>
   </section>
 
   <!-- skills section -->
   <section class="paralax" id="skills">
-    <!-- background layer (di gerakkan oleh rellax) -->
+    <!-- background layer (moved by Rellax) -->
     <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
-         style="background-image: url('skills-bg.png')"></div>
+         style="background-image: url('/grade10-industrial-task-1/skills-bg.png')"></div>
     <div class="container rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
-      <h1>Skill Saya</h1>
+      <h1>My Skills</h1>
       <ul>
-        <li>Golang - dasar</li>
-        <li>C - dasar</li>
-        <li>JavaScript - Menengah (async await, callback, promises)</li>
-        <li>Git - Dasar (commit, create branch, pr)</li>
-        <li>Github - Dasar (merge, github ci, hooks)</li>
-        <li>frontend web - beginer</li>
+        <li>Golang - basic</li>
+        <li>C - basic</li>
+        <li>JavaScript - Intermediate (async await, callback, promises)</li>
+        <li>Git - Basic (commit, create branch, pr)</li>
+        <li>GitHub - Basic (merge, GitHub CI, hooks)</li>
+        <li>Frontend web - beginner</li>
       </ul>
     </div>
   </section>
 
   <!-- contact section -->
   <section class="paralax" id="contact">
-    <!-- background layer (di gerakkan oleh rellax) -->
+    <!-- background layer (moved by Rellax) -->
     <div class="bg rellax" data-rellax-speed="-6" data-rellax-percentage="0.5"
-         style="background-image: url('contact-bg.jpg')"></div>
+         style="background-image: url('/grade10-industrial-task-1/contact-bg.jpg')"></div>
     <div class="container rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
       <h1>Contact</h1>
-      <!-- merender contactCard dan memberikan data contact dalam props -->
+      <!-- render contactCard and pass contact data in props -->
       <ContactCard dataContact={ contact }/>
     </div>
   </section>
@@ -86,16 +86,16 @@ let contact = [
 
     /* paralax */
     position: relative;
-    overflow: hidden; /* supaya background yang bergeser tidak bocor keluar section */
+    overflow: hidden; /* so the shifted background doesn't leak outside the section */
   }
 
-  /* layer background, di gerakkan oleh rellax */
+  /* background layer, moved by Rellax */
   .bg {
     position: absolute;
-    top: -20%;        /* offset negatif supaya ada ruang geser ke atas */
+    top: -20%;        /* negative offset so there's room to shift upward */
     left: 0;
     width: 100%;
-    height: 140%;     /* lebih tinggi dari section supaya tidak muncul celah */
+    height: 140%;     /* taller than the section so no gap appears */
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
@@ -108,7 +108,7 @@ let contact = [
     place-items: center;
   }
 
-  /* konten berada di atas layer background */
+  /* content is above the background layer */
   .container {
     position: relative;
     z-index: 1;
@@ -132,7 +132,7 @@ let contact = [
   // @ts-ignore
   import Rellax from 'rellax';
 
-  // Inisialisasi Rellax
+  // Rellax init
   const rellax = new Rellax('.rellax', {
     speed: -2,
     center: false,

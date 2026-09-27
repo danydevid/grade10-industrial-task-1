@@ -1,22 +1,22 @@
 ---
 const { text } = Astro.props;
 
-// menormalisasikan array dari props
+// normalize the array from props
 const formattedText = Array.isArray(text) ? text : [text];
 ---
 
-<!-- tempat untuk menaruh teks animasi -->
+<!-- place to put the animated text -->
 <span id="typed" data-strings={JSON.stringify(formattedText)}></span>
 
 <script>
   import Typed from 'typed.js';
 
-  // mengambil span menggunakan HTMLSpanElement untuk memberitahu typescript kalau yang dicari adalah HTML span
+  // get the span using HTMLSpanElement to tell TypeScript that we are looking for an HTML span
   const element = document.querySelector<HTMLSpanElement>('#typed');
   
 
   if (element) {
-    // parsing json dengan normalisasi jika variable tidak ada dengan array kosong
+    // parse json with normalization if the variable doesn't exist with an empty array
     const strings = JSON.parse(element.dataset.strings || '[]');
 
     // init typed.js

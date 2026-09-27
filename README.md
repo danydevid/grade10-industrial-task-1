@@ -1,46 +1,105 @@
-# Astro Starter Kit: Basics
+# First Assignment — Digital Profile Page
 
-```sh
-bun create astro@latest -- --template basics
+A personal digital profile page displaying a name, short bio, and skill list.  
+Built as the first assignment for the Web Programming course, using a modern approach with **Astro** (going beyond the basic HTML5 + CSS3 requirement).
+
+## Identity
+- **Name:** Jhon Doe
+- **Student ID:** 12345678
+- **Class:** X RPL 1
+- **Subject:** Web Programming
+- **Teacher:** Bagus
+
+## Features
+- [x] Hero section with name and tagline (typewriter effect)
+- [x] "About Me" section
+- [x] List of skills currently being learned
+- [x] Contact card (GitHub & Instagram)
+- [x] Navigation bar between sections
+- [x] Parallax background effect
+- [x] Dark mode design with blue accent
+
+## Rubric Compliance
+
+| No | Component | Weight | Status | Evidence / Notes |
+|----|-----------|--------|--------|------------------|
+| 1 | Project Completion | 30% | ✅ | Page successfully built and displayed in browser |
+| 2 | HTML Implementation | 20% | ✅ | `<h1>`, `<h2>`, `<p>`, `<ul>/<li>` in `src/pages/index.astro` |
+| 3 | CSS Implementation | 20% | ✅ | `background-color`, `color`, `font-family`, `padding` in `Layout.astro` |
+| 4 | Creativity & Personalization | 20% | ✅ | Custom colors, content, and animations — not a template |
+| 5 | Participation & Demo | 10% | ✅ | Demonstrated in class |
+
+**Note:** The original assignment requires plain HTML + CSS on CodePen. This project was built with **Astro** as a self-directed exploration — all rubric criteria are still met (HTML structure, CSS styling, personalization).
+
+## Tech Stack
+- **Framework:** [Astro](https://astro.build) 5.x — static site generator
+- **Languages:** HTML5, TypeScript (Astro default), JavaScript
+- **Styling:** Plain CSS (scoped inside Astro components)
+- **Additional libraries:**
+  - `typed.js` — typewriter effect in the hero section
+  - `rellax` — parallax background effect
+- **Package Manager:** [Bun](https://bun.sh)
+
+## Getting Started
+
+**Prerequisite:** [Bun](https://bun.sh) must be installed.
+
+```bash
+# 1. Clone the repository
+git clone <your-repo-url>
+cd portfolio
+
+# 2. Install dependencies
+bun install
+
+# 3. Start the development server
+bun dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open `http://localhost:4321` in your browser.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+### Build for Production
+```bash
+bun run build     # outputs to the dist/ folder
+bun run preview   # preview the production build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Project Structure
 
-## 🧞 Commands
+```
+.
+├── astro.config.mjs      # Astro configuration
+├── bun.lock              # Bun lockfile
+├── package.json          # Project metadata & dependencies
+├── tsconfig.json         # TypeScript configuration
+├── public/               # Static assets (served as-is)
+│   ├── astro-icon.svg
+│   ├── contact-bg.jpg
+│   ├── hero-background.jpg
+│   ├── material.png
+│   ├── skills-bg.png
+│   ├── screenshoot.png
+│   └── contactIco/       # Contact icons
+│       ├── github.png
+│       └── instagram.svg
+├── src/
+│   ├── assets/           # Assets optimized by Astro
+│   │   └── astro-icon-light-gradient.png
+│   ├── components/       # Reusable UI components
+│   │   ├── Navbar.astro
+│   │   ├── Typewriter.astro
+│   │   └── contactCard.astro
+│   ├── layouts/
+│   │   └── Layout.astro  # Layout + global styling
+│   └── pages/
+│       └── index.astro   # Main page (automatic routing)
+└── dist/                 # Build output (generated, not committed)
+```
 
-All commands are run from the root of the project, from a terminal:
+## Screenshot
+![Profile Page Screenshot](./public/screenshoot.png)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Notes
+- **What I learned today:** HTML and CSS alone are enough to build a first web page — and I now understand how Astro generates HTML from components.
+- **Challenges:** Initially confused about the difference between `public/` and `src/assets/` in Astro — eventually understood that `public/` is for files that don't need processing.
+- **Next steps:** Learn responsive design (Flexbox) next week and add a dark/light mode toggle.
