@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Typewriter from '../components/Typewriter.astro';
 import ContactCard  from '../components/contactCard.astro';
+const baseUrl = import.meta.env.BASE_URL; 
 
 // contact data in JSON format (for easy looping)
 let contact = [
@@ -128,6 +129,8 @@ let contact = [
   }
 </style>
 
+
+<!-- rellax -->
 <script>
   // @ts-ignore
   import Rellax from 'rellax';
@@ -140,5 +143,47 @@ let contact = [
     round: true,
     vertical: true,
     horizontal: false
+  });
+</script>
+
+<script>
+  var sections = document.querySelectorAll('.paralax');
+  var current = 0;
+  
+  // Set current berdasarkan hash kalau user buka #section
+  if (location.hash) {
+    for (var i = 0; i < sections.length; i++) {
+      if ('#' + sections[i].id === location.hash) { current = i; break; }
+    }
+  }
+  
+  window.addEventListener('keydown', function (e) {
+    
+    //@ts-ignore
+    var tag = e.target.tagName;
+    //@ts-ignore
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+    
+    var n = parseInt(e.key, 10);
+    if (!isNaN(n) && n >= 1 && n <= sections.length) {
+      e.preventDefault();
+      current = n - 1;
+      sections[current].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + sections[current].id);
+      return;
+    }
+
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (current < sections.length - 1) current++;
+      sections[current].scrollIntoView();
+      history.replaceState(null, '', '#' + sections[current].id);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (current > 0) current--;
+      sections[current].scrollIntoView();
+      history.replaceState(null, '', '#' + sections[current].id);
+    }
   });
 </script>
