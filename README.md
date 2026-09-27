@@ -4,8 +4,8 @@ A personal digital profile page displaying a name, short bio, and skill list.
 Built as the first assignment for the Web Programming course, using a modern approach with **Astro** (going beyond the basic HTML5 + CSS3 requirement).
 
 ## Identity
-- **Name:** Jhon Doe
-- **Student ID:** 12345678
+- **Name:** Dany Saputra
+- **Student Number / Attendance No.:** 12345678
 - **Class:** X RPL 1
 - **Subject:** Web Programming
 - **Teacher:** Bagus
