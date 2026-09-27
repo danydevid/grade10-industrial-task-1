@@ -5,7 +5,7 @@ Built as the first assignment for the Web Programming course, using a modern app
 
 ## Identity
 - **Name:** Dany Saputra
-- **Student Number / Attendance No.:** 12345678
+- **Student Number / Attendance No.:** 11
 - **Class:** X RPL 1
 - **Subject:** Web Programming
 - **Teacher:** Bagus
@@ -40,6 +40,7 @@ Built as the first assignment for the Web Programming course, using a modern app
   - `rellax` — parallax background effect
 - **Package Manager:** [Bun](https://bun.sh)
 
+- **Deploy**: Github Action, [Github Pages](https://danydevid.github.io/grade10-industrial-task-1/)
 ## Getting Started
 
 **Prerequisite:** [Bun](https://bun.sh) must be installed.
