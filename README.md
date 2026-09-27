@@ -47,7 +47,7 @@ Built as the first assignment for the Web Programming course, using a modern app
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/danydevid/grade10-industrial-task-1
 cd portfolio
 
 # 2. Install dependencies
